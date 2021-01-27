@@ -12,7 +12,7 @@ import { ShopParams } from '../shared/models/shopParams';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', { static: true }) searchTerm: ElementRef;
+  @ViewChild('search', { static: false }) searchTerm: ElementRef;
   products: IProduct[];
   brands: IBrand[];
   types: IType[];
@@ -28,7 +28,6 @@ export class ShopComponent implements OnInit {
   constructor(private shopService: ShopService) { }
 
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getProducts();
     this.getBrands();
@@ -106,4 +105,6 @@ export class ShopComponent implements OnInit {
     this.shopParams = new ShopParams();
     this.getProducts();
   }
+
+
 }
